@@ -1,0 +1,1 @@
+insert  into profession values (null, 'administrator');
