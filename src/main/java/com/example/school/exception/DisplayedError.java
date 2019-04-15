@@ -13,9 +13,9 @@ public class DisplayedError {
     private int statusNumber;
     private List<String> errors;
 
-    public DisplayedError(HttpStatus status, int statusNumber, String errror) {
+    public DisplayedError(HttpStatus status, int statusNumber, String error) {
         this.status = status;
         this.statusNumber = statusNumber;
-        errors = List.of(errror);
+        errors = List.of(error);
     }
 }

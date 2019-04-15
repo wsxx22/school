@@ -1,13 +1,12 @@
 package com.example.school.dto;
 
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
 @NoArgsConstructor
 @AllArgsConstructor
-@Data
-public class EmployeeDTO {
+@Setter
+@Getter
+public class EmployeeShowDTO {
 
     private Long id;
 

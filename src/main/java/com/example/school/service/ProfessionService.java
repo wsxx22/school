@@ -18,7 +18,7 @@ public class ProfessionService {
 
     public Profession findById (Long id) {
 
-        return professionRepository.findById(id).orElseThrow(() -> new ProfessionNotFoundException("nie ma takiego"));
+        return professionRepository.findById(id).orElseThrow(() -> new ProfessionNotFoundException("Invalid profession. Correct it."));
 
     }
 }
