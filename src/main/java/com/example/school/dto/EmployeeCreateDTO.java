@@ -1,10 +1,15 @@
 package com.example.school.dto;
 
 import com.example.school.annotation.ValidPassword;
-import lombok.*;
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
 import org.hibernate.validator.constraints.Length;
+
 import javax.validation.constraints.Min;
 import javax.validation.constraints.NotBlank;
+import java.util.List;
 
 @NoArgsConstructor
 @AllArgsConstructor
@@ -28,5 +33,7 @@ public class EmployeeCreateDTO {
     private int age;
 
     private Long profession;
+
+    private List<Long> roles;
 
 }

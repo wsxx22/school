@@ -6,7 +6,6 @@ import com.example.school.mapper.EmployeeMapper;
 import com.example.school.repository.EmployeeRepository;
 import com.example.school.specification.EmployeeSpecification;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
@@ -32,6 +31,6 @@ public class EmployeeService {
     }
 
     public List<EmployeeShowDTO> findAll (EmployeeSpecification spec, Pageable pageable) {
-        return employeeMapper.employeeToDTOPage(employeeRepository.findAll(spec, pageable).getContent());
+        return employeeMapper.employeeToDTOList(employeeRepository.findAll(spec, pageable).getContent());
     }
 }

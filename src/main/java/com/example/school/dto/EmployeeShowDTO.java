@@ -2,6 +2,9 @@ package com.example.school.dto;
 
 import lombok.*;
 
+import java.util.List;
+import java.util.Set;
+
 @NoArgsConstructor
 @AllArgsConstructor
 @Setter
@@ -21,5 +24,7 @@ public class EmployeeShowDTO {
     private int age;
 
     private String profession;
+
+    List<String> roles;
 
 }

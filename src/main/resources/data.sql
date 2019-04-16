@@ -137,3 +137,6 @@ insert into lesson (id_subject,id_room,id_employee,start_lesson,end_lesson,lesso
 insert into lesson (id_subject,id_room,id_employee,start_lesson,end_lesson,lesson_date) values (9,1,4,'11:10:00','12:00:00','2019-10-12');
 insert into lesson (id_subject,id_room,id_employee,start_lesson,end_lesson,lesson_date) values (1,6,5,'09:10:00','10:00:00','2019-11-06');
 insert into lesson (id_subject,id_room,id_employee,start_lesson,end_lesson,lesson_date) values (4,7,2,'07:10:00','08:00:00','2019-11-01');
+
+insert into role values (null, 'USER');
+insert into role values (null, 'ADMIN');

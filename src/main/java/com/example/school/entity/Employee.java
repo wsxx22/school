@@ -7,6 +7,7 @@ import lombok.Setter;
 
 import javax.persistence.*;
 import java.io.Serializable;
+import java.util.List;
 import java.util.Set;
 
 @Entity
@@ -33,12 +34,10 @@ public class Employee implements Serializable {
     @OneToOne(cascade = CascadeType.ALL)
     private Profession profession;
 
-    @ManyToMany(cascade = CascadeType.ALL)
-            @JoinTable(name = "user_roles", joinColumns = @JoinColumn(name = "id_employee"),
-                                            inverseJoinColumns = @JoinColumn(name = "id_role"))
-    Set<Role> roles;
+    @OneToMany(mappedBy = "employeeId", cascade = CascadeType.ALL)
+    List<Role> roles;
 
-    public Employee(String name, String surname, String username, String password, int age, Profession profession, Set<Role> roles) {
+    public Employee(String name, String surname, String username, String password, int age, Profession profession, List<EmployeeRoles> roles) {
         this.name = name;
         this.surname = surname;
         this.username = username;
@@ -47,15 +46,5 @@ public class Employee implements Serializable {
         this.profession = profession;
         this.roles = roles;
     }
-
-//    public Employee(String name, String surname, String username, String password, int age, Profession profession, String role) {
-//        this.name = name;
-//        this.surname = surname;
-//        this.username = username;
-//        this.password = password;
-//        this.age = age;
-//        this.profession = profession;
-//        roles = Set.of(role);
-//    }
 
 }
