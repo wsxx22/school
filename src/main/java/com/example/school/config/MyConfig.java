@@ -13,7 +13,8 @@ public class MyConfig implements WebMvcConfigurer {
     @Override
     public void addArgumentResolvers(List<HandlerMethodArgumentResolver> resolvers) {
         resolvers.addAll(List.of(
-                new SpecificationArgumentResolver()
+                new SpecificationArgumentResolver(),
+                new MyPageableHandlerMethodArgumentResolver()
         ));
     }
 }

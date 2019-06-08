@@ -24,7 +24,6 @@ public abstract class EmployeeMapper {
 
     @Mappings({
             @Mapping(target = "profession", source = "profession.name"),
-            @Mapping(target = "roles", source = "roles.roleId")
     })
     public abstract EmployeeShowDTO employeeToDTO(Employee employee);
 

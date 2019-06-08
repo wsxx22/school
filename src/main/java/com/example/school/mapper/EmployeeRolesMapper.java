@@ -9,7 +9,5 @@ import java.util.List;
 @Mapper(componentModel = "spring", uses = EmployeeMapper.class, nullValueMappingStrategy = NullValueMappingStrategy.RETURN_DEFAULT)
 public interface EmployeeRolesMapper {
 
-    EmployeeRolesDTO toDTO (EmployeeRoles employeeRoles);
 
-    List<EmployeeRolesDTO> toDTOList(List<EmployeeRoles> employeeRoles);
 }
