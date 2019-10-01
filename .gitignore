@@ -1,5 +1,9 @@
 HELP.md
 /target/
+.mvn/*
+.gitattributes
+.gitignore.swp
+mvnw*
 !.mvn/wrapper/maven-wrapper.jar
 
 ### STS ###
