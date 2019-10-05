@@ -1,9 +1,7 @@
 package com.example.school.entity;
 
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
+import lombok.experimental.SuperBuilder;
 
 import javax.persistence.*;
 import java.io.Serializable;
@@ -13,6 +11,7 @@ import java.util.Set;
 @Entity
 @Getter
 @Setter
+@SuperBuilder
 @NoArgsConstructor
 @AllArgsConstructor
 public class Employee extends User implements Serializable {
@@ -32,6 +31,5 @@ public class Employee extends User implements Serializable {
 
     @OneToMany(cascade = CascadeType.ALL)
             @JoinTable(name = "_roles", joinColumns = @JoinColumn(name = ""))
-    List<Role> roles;
-
+    Set<Role> roles;
 }

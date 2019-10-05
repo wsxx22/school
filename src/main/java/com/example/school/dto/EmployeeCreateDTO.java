@@ -1,26 +1,25 @@
 package com.example.school.dto;
 
 import com.example.school.annotation.ValidPassword;
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
 import org.hibernate.validator.constraints.Length;
 
 import javax.validation.constraints.Min;
 import javax.validation.constraints.NotBlank;
 import java.util.List;
+import java.util.Set;
 
-@NoArgsConstructor
-@AllArgsConstructor
+@Builder
 @Setter
 @Getter
+@NoArgsConstructor
+@AllArgsConstructor
 public class EmployeeCreateDTO {
 
-    @NotBlank(message = "Pole nie moze byc puste")
+    @NotBlank(message = "Name cannot be blank")
     private String name;
 
-    @NotBlank(message = "Field cannot be empty")
+    @NotBlank(message = "Surname cannot be blank")
     private String surname;
 
     @Length(min = 5, message = "Login must contain 5 characters")
@@ -34,6 +33,6 @@ public class EmployeeCreateDTO {
 
     private Long profession;
 
-    private List<Long> roles;
+    private Set<Long> roles;
 
 }

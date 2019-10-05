@@ -25,6 +25,6 @@ public class EmployeeShowDTO {
 
     private String profession;
 
-    List<String> roles;
+    List<RoleDTO> roles;
 
 }
