@@ -4,6 +4,8 @@ HELP.md
 .gitattributes
 .gitignore.swp
 mvnw*
+school_h2_db.mv.db
+school_h2_db.trace.db
 !.mvn/wrapper/maven-wrapper.jar
 
 ### STS ###
