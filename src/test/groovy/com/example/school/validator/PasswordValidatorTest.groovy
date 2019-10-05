@@ -74,7 +74,7 @@ class PasswordValidatorTest extends Specification {
     }
 
     private EmployeeCreateDTO prepareEmployeeCreateDTO(String password){
-        Set<Long> idRoles = Set.of(1,2) as List<Long>
+        Set<Long> idRoles = Set.of(1L,2L)
         return EmployeeCreateDTO.builder()
                 .name("Janek")
                 .surname("Kowalski")
