@@ -12,8 +12,9 @@ import org.mapstruct.NullValueMappingStrategy;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import java.util.List;
+import java.util.Optional;
 
-@Mapper(componentModel = "spring", uses = EmployeeRolesMapper.class, nullValueMappingStrategy = NullValueMappingStrategy.RETURN_DEFAULT)
+@Mapper(componentModel = "spring", uses = {EmployeeRolesMapper.class, RoleMapper.class}, nullValueMappingStrategy = NullValueMappingStrategy.RETURN_DEFAULT)
 public abstract class EmployeeMapper {
 
     @Autowired
@@ -22,29 +23,24 @@ public abstract class EmployeeMapper {
     @Autowired
     private RoleRepository roleRepository;
 
-    @Mappings({
-            @Mapping(target = "profession", source = "profession.name"),
-    })
+    @Mapping(target = "profession", source = "profession.name")
     public abstract EmployeeShowDTO employeeToDTO(Employee employee);
 
     public abstract List<EmployeeShowDTO> employeeToDTOList(List<Employee> employees);
 
     public Employee employeeDTOToEmployeeEntity(EmployeeCreateDTO employeeCreateDTO) {
 
-        if (employeeCreateDTO == null) {
-            return null;
-        }
+        EmployeeCreateDTO employeeDTO = Optional.ofNullable(employeeCreateDTO)
+                .orElseThrow(() -> new RuntimeException("EmployeeCreateDto doesn't exists."));
 
-        return new Employee(
-                employeeCreateDTO.getName(),
-                employeeCreateDTO.getSurname(),
-                employeeCreateDTO.getUsername(),
-                employeeCreateDTO.getPassword(),
-                employeeCreateDTO.getAge(),
-                professionService.findById(employeeCreateDTO.getProfession()),
-                roleRepository.findAllById(employeeCreateDTO.getRoles()) // ??
-        );
-
+        return Employee.builder()
+                .name(employeeDTO.getName())
+                .surname(employeeDTO.getSurname())
+                .username(employeeDTO.getUsername())
+                .password(employeeDTO.getPassword())
+                .age(employeeDTO.getAge())
+                .profession(professionService.findById(employeeDTO.getProfession()))
+                .roles(roleRepository.findAllById(employeeDTO.getRoles())).build();
     }
 
 }
