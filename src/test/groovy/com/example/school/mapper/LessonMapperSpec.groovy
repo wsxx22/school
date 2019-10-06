@@ -12,7 +12,7 @@ import spock.lang.Specification
 import java.time.LocalDate
 import java.time.LocalTime
 
-class LessonMapperTest extends Specification {
+class LessonMapperSpec extends Specification {
 
     LessonMapper lessonMapper
 
@@ -39,7 +39,7 @@ class LessonMapperTest extends Specification {
         Subject subject = new Subject(5, "Math")
         Room room = new Room(2, "12A")
         Profession profession = new Profession(1, "Teacher")
-        Set<Role> roles = Set.of(new Role(1, "USER"))
+        Set<Role> roles = [new Role(1, "USER")]
         Employee employee = Employee.builder()
                 .id(1)
                 .name("Jan")

@@ -4,7 +4,7 @@ import com.example.school.dto.RoleDTO
 import com.example.school.entity.Role
 import spock.lang.Specification
 
-class RoomMapperTest extends Specification {
+class RoomMapperSpec extends Specification {
 
     RoleMapper roleMapper
 
@@ -15,14 +15,14 @@ class RoomMapperTest extends Specification {
     def 'Should map Role entity to RoleDto'() {
 
         given:
-        Role role = new Role(1, "Teacher")
+        Role role = new Role(1, "Admin")
 
         when:
         RoleDTO roleDTO = roleMapper.toDTO(role)
 
         then:
         roleDTO.getId() == 1
-        roleDTO.getRole() == "Teacher"
+        roleDTO.getRole() == "Admin"
     }
 
     def 'Should map roles to RolesDto'() {
@@ -35,14 +35,13 @@ class RoomMapperTest extends Specification {
 
         then:
         rolesDTO.size() == 3
-        rolesDTO.stream().filter({r -> r.getRole() == "Caretaker"}).count() == 1
+        rolesDTO.stream().filter({r -> r.getRole() == "User"}).count() == 1
     }
 
     private Set<Role> prepareRoles() {
-        return Set.of(
-                new Role(1, "Teacher"),
-                new Role(2, "Administrator"),
-                new Role(3, "Caretaker"))
+        return [new Role(1, "Admin"),
+                new Role(2, "User"),
+                new Role(3, "Guest")]
     }
 
 }

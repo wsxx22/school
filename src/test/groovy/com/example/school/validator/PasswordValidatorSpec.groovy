@@ -11,7 +11,7 @@ import javax.validation.Validator
 import javax.validation.ValidatorFactory
 import java.util.stream.Collectors
 
-class PasswordValidatorTest extends Specification {
+class PasswordValidatorSpec extends Specification {
 
     ValidatorFactory validatorFactory
     Validator validator

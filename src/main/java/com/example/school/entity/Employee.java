@@ -29,7 +29,8 @@ public class Employee extends User implements Serializable {
     @OneToOne(cascade = CascadeType.ALL)
     private Profession profession;
 
-    @OneToMany(cascade = CascadeType.ALL)
-            @JoinTable(name = "_roles", joinColumns = @JoinColumn(name = ""))
+    @ManyToMany(cascade = CascadeType.ALL)
+            @JoinTable(name = "user_roles", joinColumns = @JoinColumn(name = "id_user"),
+                                            inverseJoinColumns = @JoinColumn(name = "id_role"))
     Set<Role> roles;
 }
