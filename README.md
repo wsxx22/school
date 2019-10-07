@@ -3,6 +3,7 @@
 ### Table of Contents
 * [Technologies](#technologies)
 * [Prerequisites](#prerequisites)
+* [Tests](#tests)
 * [Getting started](#getting-started)
 * [Database](#database)
 * [Default users](#default-users)
@@ -26,6 +27,9 @@
 * Java 10
 * Maven
 * Lombok plugin
+
+### Tests
+* Spock
 
 ### Getting started
 You can get a project from:
